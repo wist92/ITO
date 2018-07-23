@@ -164,8 +164,8 @@ function getFullContent_Bereich(bereichsid) {
     return new Promise(function (resolve, reject){
         con = connect();
         var sql = "SELECT * FROM Liste WHERE bereich = "   + bereichsid + "; " +
-                  "SELECT * FROM Aufgabe WHERE bereich = " + bereichsid + "; "+
-                  "SELECT * FROM Notiz WHERE bereich = " + bereichsid;
+            "SELECT * FROM Aufgabe WHERE bereich = " + bereichsid + "; "+
+            "SELECT * FROM Notiz WHERE bereich = " + bereichsid;
 
         con.query(sql, function (err, result) {
             if (err) reject (err);
@@ -625,6 +625,42 @@ function setWeight_Aufgabe(aufgabenid, weight) {
         });})
 }
 
+function update_Liste(listenid, newName, newBereichsid, newDate) {
+    return new Promise(function (resolve, reject){
+        con = connect();
+        var sql = "UPDATE Liste SET name = '" + newName + "', bereich = " + newBereichsid + ", datum = '" + newDate + "' WHERE liste_id = " + listenid;
+
+        con.query(sql, function (err, result) {
+            if (err) reject (err);
+            resolve(result); // Bereitstellen der Rückgabe
+            con.end(); // DB-Verbindung schließen
+        });})
+}
+
+function update_Aufgabe(aufgabenid, newText, newBereichsid, newListenid, newDate, newWeight, erledigt) {
+    return new Promise(function (resolve, reject){
+        con = connect();
+        var sql = "UPDATE Aufgabe SET text = '" + newText + "', bereich = " + newBereichsid + ", liste = " + newListenid + ", datum = '" + newDate + "', wichtung = " + newWeight + ", erledigt = " + erledigt + " WHERE aufgabe_id = " + aufgabenid;
+
+        con.query(sql, function (err, result) {
+            if (err) reject (err);
+            resolve(result); // Bereitstellen der Rückgabe
+            con.end(); // DB-Verbindung schließen
+        });})
+}
+
+function update_Notiz(notizid, newText, newBereichsid, newListenid, newAufgabenid) {
+    return new Promise(function (resolve, reject){
+        con = connect();
+        var sql = "UPDATE Notiz SET text = '" + newText + "', bereich = " + newBereichsid + ", liste = " + newListenid + ", aufgabe = " + newAufgabenid + " WHERE notiz_id = " + notizid;
+
+        con.query(sql, function (err, result) {
+            if (err) reject (err);
+            resolve(result); // Bereitstellen der Rückgabe
+            con.end(); // DB-Verbindung schließen
+        });})
+}
+
 
 exports.createNutzer = createNutzer;
 exports.createBereich = createBereich;
@@ -656,3 +692,6 @@ exports.setDate_Liste = setDate_Liste;
 exports.setDate_Aufgabe = setDate_Aufgabe;
 exports.setDone_Aufgabe = setDone_Aufgabe;
 exports.setWeight_Aufgabe = setWeight_Aufgabe;
+exports.update_Aufgabe = update_Aufgabe;
+exports.update_Liste = update_Liste;
+exports.update_Notiz = update_Notiz;

@@ -2,7 +2,7 @@ var m = require('./dbManager');
 
 async function main(){
     try {
-        obj = await m.setWeight_Aufgabe(2, 0.3)
+        obj = await m.update_Notiz(5, "Help is on the waaaay", 2, 0, 0)
         console.log(obj)
     } catch(err) {
         console.log(err)
