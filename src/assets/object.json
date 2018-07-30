@@ -1,0 +1,165 @@
+{
+    "id": 1,
+    "nutzer_name": "Wormi",
+    "bereich_liste": [
+        {
+            "bereich_id": 1,
+            "bereich_name": "Uni",
+            "nutzer_name": "Wormi",
+            "listen_liste": [
+                {
+                    "liste_id": 1,
+                    "bereich_id": 1,
+                    "liste_name": "Data Mining",
+                    "datum": "2018-08-29T22:00:00.000Z",
+                    "aufgaben_liste": [
+                        {
+                            "aufgabe_id": 2,
+                            "bereich_id": 1,
+                            "liste_id": 1,
+                            "aufgabe_name": "Datenanalyse",
+                            "datum": "0000-00-00",
+                            "wichtung": 30,
+                            "done": true,
+                            "notizen_liste": []
+                        },
+                        {
+                            "aufgabe_id": 3,
+                            "bereich_id": 1,
+                            "liste_id": 1,
+                            "aufgabe_name": "Datenauswertung",
+                            "datum": "0000-00-00",
+                            "wichtung": 20,
+                            "done": true,
+                            "notizen_liste": [
+                                {
+                                    "notiz_id": 2,
+                                    "bereich_id": 1,
+                                    "liste_id": 1,
+                                    "aufgabe_id": 3,
+                                    "notiz_name": "SVM anfertigen"
+                                },
+                                {
+                                    "notiz_id": 3,
+                                    "bereich_id": 1,
+                                    "liste_id": 1,
+                                    "aufgabe_id": 3,
+                                    "notiz_name": "Modelle vergleichen"
+                                }
+                            ]
+                        },
+                        {
+                            "aufgabe_id": 4,
+                            "bereich_id": 1,
+                            "liste_id": 1,
+                            "aufgabe_name": "Paper schreiben",
+                            "datum": "2018-08-24T22:00:00.000Z",
+                            "wichtung": 50,
+                            "done": false,
+                            "notizen_liste": [
+                                {
+                                    "notiz_id": 4,
+                                    "bereich_id": 1,
+                                    "liste_id": 1,
+                                    "aufgabe_id": 4,
+                                    "notiz_name": "Formatierung"
+                                }
+                            ]
+                        }
+                    ],
+                    "notizen_liste": []
+                },
+                {
+                    "liste_id": 2,
+                    "bereich_id": 1,
+                    "liste_name": "Datenbanken",
+                    "datum": "0000-00-00",
+                    "aufgaben_liste": [],
+                    "notizen_liste": []
+                },
+                {
+                    "liste_id": 3,
+                    "bereich_id": 1,
+                    "liste_name": "Mobis",
+                    "datum": "0000-00-00",
+                    "aufgaben_liste": [],
+                    "notizen_liste": []
+                }
+            ],
+            "aufgaben_liste": [
+                {
+                    "aufgabe_id": 5,
+                    "bereich_id": 1,
+                    "liste_id": 0,
+                    "aufgabe_name": "Ausweis bedrucken",
+                    "datum": "2018-08-29T22:00:00.000Z",
+                    "wichtung": null,
+                    "done": false,
+                    "notizen_liste": []
+                }
+            ],
+            "notizen_liste": []
+        },
+        {
+            "bereich_id": 2,
+            "bereich_name": "Rezepte",
+            "nutzer_name": "Wormi",
+            "listen_liste": [
+                {
+                    "liste_id": 4,
+                    "bereich_id": 2,
+                    "liste_name": "Chicken Curry",
+                    "datum": "0000-00-00",
+                    "aufgaben_liste": [],
+                    "notizen_liste": []
+                },
+                {
+                    "liste_id": 5,
+                    "bereich_id": 2,
+                    "liste_name": "Bolognese",
+                    "datum": "0000-00-00",
+                    "aufgaben_liste": [],
+                    "notizen_liste": []
+                }
+            ],
+            "aufgaben_liste": [],
+            "notizen_liste": []
+        },
+        {
+            "bereich_id": 3,
+            "bereich_name": "Sonstiges",
+            "nutzer_name": "Wormi",
+            "listen_liste": [
+                {
+                    "liste_id": 6,
+                    "bereich_id": 3,
+                    "liste_name": "Wocheneinkauf",
+                    "datum": "2018-08-31T22:00:00.000Z",
+                    "aufgaben_liste": [],
+                    "notizen_liste": []
+                }
+            ],
+            "aufgaben_liste": [
+                {
+                    "aufgabe_id": 1,
+                    "bereich_id": 3,
+                    "liste_id": 0,
+                    "aufgabe_name": "Schlüssel holen",
+                    "datum": "0000-00-00",
+                    "wichtung": null,
+                    "done": false,
+                    "notizen_liste": [
+                        {
+                            "notiz_id": 1,
+                            "bereich_id": 3,
+                            "liste_id": 0,
+                            "aufgabe_id": 1,
+                            "text": "von Paul"
+                        }
+                    ]
+                }
+            ],
+            "notizen_liste": []
+        }
+    ]
+}

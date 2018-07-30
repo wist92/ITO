@@ -1,11 +1,11 @@
 function connect(){
     var mysql = require('mysql');
     var con = mysql.createConnection({
-        host: "",
-        user: "",
-        password: "",
-        database: "nidhogg",
-        multipleStatements: true
+      host: "nidhogg.cf7p89d2k1rs.us-east-2.rds.amazonaws.com",
+      user: "nikkura",
+      password: "i7wdnf*s",
+      database: "nidhogg",
+      multipleStatements: true
     });
 
     con.connect(function(err){

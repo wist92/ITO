@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Neuen Bereich Erstellen</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Schließen</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Name des Bereichs</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="bereich_name"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="submitModal(name)">Erstellen</button>
+</ion-content>

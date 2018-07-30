@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Neue Aufgabe erstellen</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Schließen</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="aufgabe_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Enddatum</ion-label>
+      <ion-input type="text" [(ngModel)]="datum"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Wichtung</ion-label>
+      <ion-select [(ngModel)]="wichtung" okText="OK" cancelText="X">
+        <ion-option value="10">10%</ion-option>
+        <ion-option value="20">20%</ion-option>
+        <ion-option value="30">30%</ion-option>
+        <ion-option value="40">40%</ion-option>
+        <ion-option value="50">50%</ion-option>
+        <ion-option value="60">60%</ion-option>
+        <ion-option value="70">70%</ion-option>
+        <ion-option value="80">80%</ion-option>
+        <ion-option value="90">90%</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hinzufügen zu</ion-label>
+      <ion-select [(ngModel)]="path" okText="OK" cancelText="X">
+        <ion-option *ngFor="let option of add_to_options;"
+                    [value]="option">{{option}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="submitModal(name)">Erstellen</button>
+</ion-content>

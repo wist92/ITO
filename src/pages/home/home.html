@@ -1,14 +1,82 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      <p>Intelligent Task Organizer</p>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-list class="accordion-list">
+    <!-- First Level -->
+    <ion-list-header *ngFor="let item of information; let i = index" no-lines no-padding>
+      <!-- Toggle Button -->
+      <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
+        <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>
+        <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>
+        {{ item.bereich_name }}
+      </button>
+
+      <ion-list *ngIf="item.listen_liste && item.open" no-lines>
+        <!-- Second Level -->
+        <ion-list-header *ngFor="let child of item.listen_liste; let j = index" no-padding>
+          <!-- Toggle Button -->
+          <button ion-item (click)="toggleItem(i, j)" *ngIf="child.aufgaben_liste" class="child" detail-none>
+            <ion-icon item-left name="add" *ngIf="!child.open"></ion-icon>
+            <ion-icon item-left name="close" *ngIf="child.open"></ion-icon>
+            {{ child.liste_name }}
+          </button>
+          <ion-list *ngIf="child.aufgaben_liste && child.open">
+            <!-- Third Level -->
+            <ion-item *ngFor="let item of child.aufgaben_liste; let k = index" detail-none class="child-item" text-wrap>
+              <h2>{{ item.aufgabe_name }}</h2>
+              <p *ngIf="item.datum != null">{{item.datum}}</p>
+              <p *ngIf="item.wichtung != null">{{item.wichtung}}%</p>
+              <button ion-button icon-only item-end (click)="editTaskThird(i,j,k)">
+                <ion-icon name="hammer"></ion-icon>
+              </button>
+              <button ion-button icon-only item-end (click)="deleteTaskThird(i,j,k)">
+                <ion-icon name="remove"></ion-icon>
+              </button>
+              <button ion-button icon-only item-start (click)="checkItemThird(i,j,k)">
+                <ion-icon [name]="item.done ? 'checkbox-outline' : 'square-outline'"></ion-icon>
+              </button>
+              <button ion-button icon-only item-end (click)="goToDetailPage(item)">
+                <ion-icon name="more"></ion-icon>
+              </button>
+            </ion-item>
+          </ion-list>
+        </ion-list-header>
+      </ion-list>
+      <ion-list *ngIf="item.aufgaben_liste && item.open" no-lines>
+        <ion-list-header *ngFor="let child of item.aufgaben_liste; let j = index" no-padding>
+          <ion-item *ngIf="!child.aufgaben_liste" ion-item detail-none class="child-item" text-wrap >
+            <h2>{{ child.aufgabe_name }}</h2>
+            <p *ngIf="item.datum != null">{{item.datum}}</p>
+            <p *ngIf="child.wichtung != null">{{child.wichtung}}%</p>
+            <button ion-button icon-only item-end (click)="editTaskSecond(i, j)">
+              <ion-icon name="hammer"></ion-icon>
+            </button>
+            <button ion-button icon-only item-end (click)="deleteTaskSecond(i,j)">
+              <ion-icon name="remove"></ion-icon>
+            </button>
+            <button ion-button icon-only item-start (click)="checkItemSecond(i,j)">
+              <ion-icon [name]="child.done ? 'checkbox-outline' : 'square-outline'"></ion-icon>
+            </button>
+            <button ion-button icon-only item-end (click)="goToDetailPage(child)">
+              <ion-icon name="more"></ion-icon>
+            </button>
+          </ion-item>
+        </ion-list-header>
+      </ion-list>
+    </ion-list-header>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-buttons>
+    <button ion-button full (click)=newArea()>Neuer Bereich</button>
+    <button ion-button full (click)=newList()>Neue Liste</button>
+    <button ion-button full (click)=newTask()>Neue Aufgabe</button>
+  </ion-buttons>
+</ion-footer>

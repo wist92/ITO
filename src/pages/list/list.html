@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Neue Liste erstellen</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Schließen</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="liste_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Enddatum</ion-label>
+      <ion-input type="text" [(ngModel)]="datum"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hinzufügen zu</ion-label>
+      <ion-select [(ngModel)]="path" okText="OK" cancelText="X">
+        <ion-option *ngFor="let option of add_to_options;"
+                    [value]="option">{{option}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="submitModal(name)">Erstellen</button>
+</ion-content>

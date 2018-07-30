@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Neue Notiz erstellen</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Schließen</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Inhalt</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="notiz_name"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="submitModal(name)">Erstellen</button>
+</ion-content>

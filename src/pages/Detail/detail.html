@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <p>Details</p>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- von hier
+  <h3 text-center *ngIf="selectedItem">
+    {{selectedItem.notizen_liste[0].notiz_name}}
+  </h3>
+  <h4 text-center *ngIf="selectedItem">
+      You navigated here from <b>{{selectedItem.name}}</b>
+  </h4>
+  <!-- bis hier zum testen der korrekten weiterleitung, kann am ende gelöscht werden-->
+
+  <ion-list-header no-padding>
+    <!-- Toggle Button -->
+    <button ion-item (click)="toggleItem()" *ngIf="selectedItem.notizen_liste" class="child" detail-none>
+      <ion-icon item-left name="add" *ngIf="!selectedItem.open"></ion-icon>
+      <ion-icon item-left name="close" *ngIf="selectedItem.open"></ion-icon>
+      {{ selectedItem.aufgabe_name }}
+    </button>
+    <ion-list *ngFor="let note of selectedItem.notizen_liste; let i = index" >
+      <ion-item *ngIf="selectedItem.notizen_liste && selectedItem.open" detail-none class="child-item" text-wrap>
+        <h2>{{ note.notiz_name }}</h2>
+        <button ion-button icon-only item-end (click)="editItem(i)">
+          <ion-icon name="hammer"></ion-icon>
+        </button>
+        <button ion-button icon-only item-end (click)="deleteItem(i)">
+          <ion-icon name="remove"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-list-header>
+</ion-content>
+
+<ion-footer>
+  <ion-buttons>
+    <button ion-button full (click)=newNotiz()>Neue Notiz</button>
+  </ion-buttons>
+</ion-footer>
